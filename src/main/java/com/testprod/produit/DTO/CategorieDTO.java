@@ -22,7 +22,7 @@ public class CategorieDTO {
 	 * desscription; //private Produit produit;
 	 */
 	
-	    private Long idCat;
+	    private Long idCat; //id du categorie
 	    private String nomCat;
 	    private String descriptionCat;
 	    private List<ProduitDTO> produits;
