@@ -38,7 +38,7 @@ public class SecurityConfig {
  	 .csrf(csrf -> csrf.disable())
 
  	.authorizeHttpRequests((requests)->requests
- 			 .requestMatchers("/login").permitAll()
+ 			 .requestMatchers("/login", "/api/cat/newcategorie/**", "/api/cat/allcategories/**","/api/prod/newproduit/**","/api/prod/allproduits/**","/api/image/**").permitAll()
  			 .anyRequest().authenticated() )
 
  			 .addFilterBefore(new JWTAuthenticationFilter (authMgr),

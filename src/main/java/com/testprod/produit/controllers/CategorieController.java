@@ -23,6 +23,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import reactor.core.publisher.Flux;
 
 
 
@@ -92,7 +93,7 @@ public class CategorieController {
 	      		)
 			@GetMapping("/allcategories")
 			//@PreAuthorize("hasAnyAuthority('ADMIN')")
-			public ResponseEntity<List<CategorieDTO>> getAllCategories(){
+			public ResponseEntity<Flux<CategorieDTO>> getAllCategories(){
 				
 				return ResponseEntity.ok(categorieService.getAllCategorie());
 			}

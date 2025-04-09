@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.testprod.produit.DTO.CategorieDTO;
 import com.testprod.produit.entities.Categorie;
 
+import reactor.core.publisher.Flux;
+
 
 @Service
 public interface CategorieService {
@@ -15,7 +17,7 @@ public interface CategorieService {
 	CategorieDTO updateCategorie(Long id, CategorieDTO p);
 	
 	CategorieDTO getCategorie(Long id);
-	List<CategorieDTO> getAllCategorie();
+	Flux<CategorieDTO> getAllCategorie();
 	
 	
 	void deleteCategorieById(Long id);

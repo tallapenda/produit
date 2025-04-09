@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.testprod.produit.DTO.CategorieDTO;
 import com.testprod.produit.entities.Categorie;
 import com.testprod.produit.repository.CategorieRepository;
+
+import reactor.core.publisher.Flux;
+
 import java.util.ArrayList;
 
 import org.modelmapper.ModelMapper;
@@ -124,7 +127,7 @@ public class CategorieServiceImpl implements CategorieService{
 
 
 	@Override
-	public List<CategorieDTO> getAllCategorie() {
+	public Flux<CategorieDTO> getAllCategorie() {
 		
 		List<Categorie> categor = categorieRepository.findAllCategorie();
 		
@@ -135,7 +138,7 @@ public class CategorieServiceImpl implements CategorieService{
 			catDTO.add(convertEntitesToDTO(ct));
 		}
 		
-		return catDTO;
+		return Flux.fromIterable(catDTO);
 	}
 
 

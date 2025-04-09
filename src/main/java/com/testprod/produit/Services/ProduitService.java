@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.testprod.produit.DTO.ProduitDTO;
 import com.testprod.produit.entities.Produit;
 
+import reactor.core.publisher.Flux;
+
 @Service
 public interface ProduitService {
 	
@@ -14,7 +16,7 @@ public interface ProduitService {
 	ProduitDTO updateProduit(ProduitDTO p);
 	
 	ProduitDTO getProduit(Long id);
-	List<ProduitDTO> getAllProduit();
+	Flux<ProduitDTO> getAllProduit();
 	
 	
 	void deleteProduiById(Long id);

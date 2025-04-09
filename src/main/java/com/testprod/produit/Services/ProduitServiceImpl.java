@@ -18,6 +18,9 @@ import com.testprod.produit.DTO.ProduitDTO;
 import com.testprod.produit.entities.Produit;
 import com.testprod.produit.repository.ImageRepository;
 import com.testprod.produit.repository.ProduitRepository;
+
+import reactor.core.publisher.Flux;
+
 import org.modelmapper.PropertyMap;
 
 
@@ -92,7 +95,7 @@ public class ProduitServiceImpl implements ProduitService{
 	}
 
 	@Override
-	public List<ProduitDTO> getAllProduit() {
+	public Flux<ProduitDTO> getAllProduit() {
 		/*
 		return produitrepository.findAll().stream().map(this::convertEntitesToDTO)
 				.collect(Collectors.toList());
@@ -108,7 +111,7 @@ public class ProduitServiceImpl implements ProduitService{
 			prodDTO.add(convertEntitesToDTO(p));	
 		}
 		
-		return prodDTO;
+		return Flux.fromIterable(prodDTO);
 		
 	}
 	

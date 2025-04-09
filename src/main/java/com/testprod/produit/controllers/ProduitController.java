@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.testprod.produit.DTO.CategorieDTO;
 import com.testprod.produit.DTO.ProduitDTO;
 import com.testprod.produit.Services.ProduitService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import reactor.core.publisher.Flux;
 
 
 @RestController
@@ -49,8 +51,9 @@ public class ProduitController {
       		)
 	@GetMapping("/allproduits")
 	//@PreAuthorize("hasAnyAuthority('ADMIN')")
-	public ResponseEntity<List<ProduitDTO>> getAllProduits(){
-		System.out.println("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+	public ResponseEntity<Flux<ProduitDTO>> getAllProduits(){
+    	
+		System.out.println("LISTTTTE PRODDDDUIIIITTTTTTTTTTT");
 		return ResponseEntity.ok(produitService.getAllProduit());
 	}
 	
